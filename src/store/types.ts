@@ -43,7 +43,37 @@ export interface SigninData {
     password:string;
 }
 
+//// ACTIONS
 
+    interface SetUserAction {
+        type: typeof SET_USER;
+        payload:User;
+    }        
 
+    interface SetLoadingAction {
+        type: typeof SET_LOADING;
+        payload:boolean;
+    }
+
+    interface SignOut{
+        type: typeof SIGN_OUT;
+
+    }
+
+    interface SetErrorAction{
+        type: typeof SET_ERROR;
+        payload:string;
+    }
+
+    interface NeedVerificationAction{
+        type: typeof NEED_VERIFICATION;
+    }
+
+    interface SetSuccessAction{
+        type: typeof SET_SUCCESS;
+        payload:string;
+    }
+
+    export type AuthAction = SetUserAction | SetLoadingAction | SetErrorAction | NeedVerificationAction | SetSuccessAction;
 
 
