@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './firebase/config';
 import 'bulma/css/bulma.min.css';
+import {  Provider } from 'react-redux';
+import store from './store/index';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
