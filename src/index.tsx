@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './firebase/config';
+import 'bulma/css/bulma.min.css';
 
 
 ReactDOM.render(

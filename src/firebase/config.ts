@@ -12,3 +12,5 @@ firebase.initializeApp({
     messagingSenderId: process.env.REACT_APP__FIREBASE_MESSAGING_SEND,
     appId:process.env.REACT_APP__FIREBASE_APP_ID
 })
+
+export default  firebase;
