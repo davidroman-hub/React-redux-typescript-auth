@@ -5,11 +5,12 @@ import { useDispatch, useSelector} from 'react-redux';
 import Input from '../UI/Input';
 import Button from '../UI/Button';
 import Message from '../UI/Message';
-import { signup, setError } from '../../store/actions/authActions';
+import { signin, setError } from '../../store/actions/authActions';
 import {RootState} from '../../store/index';
+import { Link } from 'react-router-dom';
 
-const SignUp: FC = () => {
-    const [firstName, setFirstName] = useState('');
+const SignIn: FC = () => {
+    
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('')
     const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ const SignUp: FC = () => {
     const submitHandler = (e : FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        dispatch(signup({email, password, firstName}, () => setLoading(false)));
+        dispatch(signin({email, password}, () => setLoading(false)));
     }
 
     return(
@@ -37,13 +38,7 @@ const SignUp: FC = () => {
                 <h2 className='has-text-centered is-size-2 mb-3'>Sign Up</h2>
                 <form className='form' onSubmit={submitHandler}>
                     {error && <Message type='danger' msg={error}/>}
-                    <Input
-                        name='firstName'
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.currentTarget.value) }
-                        placeholder='First Name'
-                        label='First Name'
-                    />
+                    
                     <Input
                         type='email'
                         name='email'
@@ -60,11 +55,12 @@ const SignUp: FC = () => {
                         placeholder='Password'
                         label='Password'
                     />
-                    <Button text={loading ? 'Loading... ' : ' Sign Up'} className='is-primary is-fullwidth mt-5' disabled={loading} />
+                    <p><Link to='/forgot-password'>Forgot Password??</Link></p>
+                    <Button text={loading ? 'Loading... ' : ' Sign In'} className='is-primary is-fullwidth mt-5' disabled={loading} />
                 </form>
             </div>
         </section>
     )
 }
 
-export default SignUp
+export default SignIn
