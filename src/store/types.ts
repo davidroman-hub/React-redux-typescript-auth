@@ -55,7 +55,7 @@ export interface SigninData {
         payload:boolean;
     }
 
-    interface SignOut{
+    interface SignOutAction{
         type: typeof SIGN_OUT;
 
     }
@@ -74,6 +74,6 @@ export interface SigninData {
         payload:string;
     }
 
-    export type AuthAction = SetUserAction | SetLoadingAction | SetErrorAction | NeedVerificationAction | SetSuccessAction;
+    export type AuthAction = SetUserAction | SetLoadingAction | SetErrorAction | NeedVerificationAction | SignOutAction  | SetSuccessAction;
 
 
